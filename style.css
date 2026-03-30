@@ -290,6 +290,33 @@ input, textarea {
   transform: translateY(0);
 }
 
+.contact__card--submit:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.contact__card--status {
+  min-height: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.contact__card--status.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact__card--status.is-success {
+  color: #176a3b;
+}
+
+.contact__card--status.is-error {
+  color: #a11f39;
+}
+
 textarea {
   resize: vertical;
   height: 100px;

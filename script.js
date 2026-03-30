@@ -144,15 +144,34 @@ function toggleAboutCard() {
 function toggleContactCard() {
     const backdrop = document.getElementById("contact__backdrop");
     backdrop.classList.toggle("contact__card--open");
+    setContactStatus("");
+}
+
+function setContactStatus(message, type = "success") {
+    const statusEl = document.getElementById("contact__status");
+    if (!statusEl) {
+        return;
+    }
+
+    statusEl.textContent = message;
+    statusEl.classList.remove("is-visible", "is-success", "is-error");
+
+    if (!message) {
+        return;
+    }
+
+    statusEl.classList.add("is-visible");
+    statusEl.classList.add(type === "error" ? "is-error" : "is-success");
 }
 
 function sendContactMessage() {
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const message = document.getElementById("message").value;
+    const submitButton = document.querySelector(".contact__card--submit");
 
     if (!name || !email || !message) {
-        alert("Please fill in all fields.");
+        setContactStatus("Please fill in all fields before sending.", "error");
         return;
     }
 
@@ -161,5 +180,15 @@ function sendContactMessage() {
 
     const mailtoLink = `mailto:erin.hansen1125@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    window.location.href = mailtoLink;
+    setContactStatus("Thank you! I look forward to speaking with you. Your email app is opening with your drafted message.", "success");
+    if (submitButton) {
+        submitButton.disabled = true;
+    }
+
+    window.setTimeout(() => {
+        if (submitButton) {
+            submitButton.disabled = false;
+        }
+        window.location.href = mailtoLink;
+    }, 250);
 }
