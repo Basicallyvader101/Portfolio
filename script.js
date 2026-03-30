@@ -6,6 +6,12 @@ function closeMenu() {
     document.body.classList.remove("menu-open");
 }
 
+function toggleContrast() {
+    document.body.classList.toggle("dark-theme");
+    const theme = document.body.classList.contains("dark-theme") ? "dark" : "light";
+    window.localStorage.setItem("theme", theme);
+}
+
 let backgroundShapes = null;
 let backgroundTargetX = 0;
 let backgroundTargetY = 0;
@@ -19,6 +25,12 @@ const ABOUT_CARD_DATA = {
     subtitle: "Frontend Software Engineer focused on building responsive, user-first web experiences.",
     description: "I build modern interfaces with HTML, CSS, and JavaScript, with a strong focus on clean structure, accessible UX, and polished interaction design. I enjoy taking ideas from concept to production-ready UI and refining the details that make products feel intuitive and professional.",
     skills: ["HTML", "CSS", "JavaScript", "React", "Firebase", "Responsive Design", "Accessibility", "UI Design"]
+};
+
+const ABOUT_SKILL_ICONS = {
+    HTML: "fa-brands fa-html5",
+    CSS: "fa-brands fa-css3-alt",
+    JavaScript: "fa-brands fa-js"
 };
 
 function getBackgroundShapes() {
@@ -98,12 +110,28 @@ function renderAboutCard() {
     chipsEl.innerHTML = "";
     ABOUT_CARD_DATA.skills.forEach((skill) => {
         const chip = document.createElement("span");
-        chip.textContent = skill;
+        const iconClass = ABOUT_SKILL_ICONS[skill];
+
+        if (iconClass) {
+            const icon = document.createElement("i");
+            icon.className = iconClass;
+            icon.setAttribute("aria-hidden", "true");
+            chip.appendChild(icon);
+        }
+
+        const label = document.createElement("strong");
+        label.textContent = skill;
+        chip.appendChild(label);
         chipsEl.appendChild(chip);
     });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = window.localStorage.getItem("theme") || "dark";
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-theme");
+    }
+
     renderAboutCard();
     startBackgroundAnimation();
 });
