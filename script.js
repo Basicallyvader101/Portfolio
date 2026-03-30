@@ -13,6 +13,14 @@ let backgroundCurrentX = 0;
 let backgroundCurrentY = 0;
 let backgroundLoopStarted = false;
 
+// Edit this object to update About card content.
+const ABOUT_CARD_DATA = {
+    title: "About Me",
+    subtitle: "Frontend Software Engineer focused on building responsive, user-first web experiences.",
+    description: "I build modern interfaces with HTML, CSS, and JavaScript, with a strong focus on clean structure, accessible UX, and polished interaction design. I enjoy taking ideas from concept to production-ready UI and refining the details that make products feel intuitive and professional.",
+    skills: ["HTML", "CSS", "JavaScript", "React", "Firebase", "Responsive Design", "Accessibility", "UI Design"]
+};
+
 function getBackgroundShapes() {
     if (!backgroundShapes || backgroundShapes.length === 0) {
         backgroundShapes = document.querySelectorAll(".shape");
@@ -73,6 +81,57 @@ function startBackgroundAnimation() {
     window.requestAnimationFrame(animateBackgroundShapes);
 }
 
+function renderAboutCard() {
+    const titleEl = document.getElementById("about__title");
+    const subtitleEl = document.getElementById("about__subtitle");
+    const descriptionEl = document.getElementById("about__description");
+    const chipsEl = document.getElementById("about__chips");
+
+    if (!titleEl || !subtitleEl || !descriptionEl || !chipsEl) {
+        return;
+    }
+
+    titleEl.textContent = ABOUT_CARD_DATA.title;
+    subtitleEl.textContent = ABOUT_CARD_DATA.subtitle;
+    descriptionEl.textContent = ABOUT_CARD_DATA.description;
+
+    chipsEl.innerHTML = "";
+    ABOUT_CARD_DATA.skills.forEach((skill) => {
+        const chip = document.createElement("span");
+        chip.textContent = skill;
+        chipsEl.appendChild(chip);
+    });
+}
+
 window.addEventListener("DOMContentLoaded", () => {
+    renderAboutCard();
     startBackgroundAnimation();
 });
+
+function toggleAboutCard() {
+    const backdrop = document.getElementById("about__backdrop");
+    backdrop.classList.toggle("about__card--open");
+}
+
+function toggleContactCard() {
+    const backdrop = document.getElementById("contact__backdrop");
+    backdrop.classList.toggle("contact__card--open");
+}
+
+function sendContactMessage() {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    if (!name || !email || !message) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    const subject = `New message from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+
+    const mailtoLink = `mailto:erin.hansen1125@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
+}

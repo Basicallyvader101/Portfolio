@@ -4,6 +4,7 @@
   --accent-purple: #800080;
   --accent-purple-hover: #6a3a87;
   --accent-green: #1f5a3a;
+  --page-bg-light-purple: #faf6ff;
 }
 
 * {
@@ -15,6 +16,13 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(31, 90, 58, 0.08), transparent 35%),
+    radial-gradient(circle at 88% 12%, rgba(106, 58, 135, 0.12), transparent 40%),
+    linear-gradient(180deg, var(--page-bg-light-purple) 0%, #f3eaff 45%, #eee2ff 100%);
 }
 
 li {
@@ -35,7 +43,7 @@ button {
 }
 
 section {
-  background-color: rgb(245, 245, 245);
+  background-color: transparent;
   transition: all 300ms ease;
 }
 
@@ -50,6 +58,222 @@ input, textarea {
   border-right: none;
   height: 40px;
   transition: all 300ms ease;
+}
+
+/* ABOUT CARD */
+.about__card--backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms ease;
+}
+
+.about__card--backdrop.about__card--open {
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 50;
+  opacity: 1;
+  visibility: visible;
+}
+
+.about__card {
+  background-color: rgb(245, 245, 245);
+  border-radius: 20px;
+  border: 2px solid rgba(31, 90, 58, 0.28);
+  box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.45);
+  padding: 44px;
+  max-width: 620px;
+  width: 90%;
+  position: relative;
+  opacity: 0;
+  transform: translateY(14px) scale(0.96);
+  transition: transform 320ms ease, opacity 320ms ease;
+}
+
+.about__card--backdrop.about__card--open .about__card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.about__card--close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #242424;
+  cursor: pointer;
+  transition: color 250ms ease;
+}
+
+.about__card--close:hover {
+  color: var(--accent-purple-hover);
+}
+
+.about__card--title {
+  font-size: 32px;
+  color: #242424;
+  margin-bottom: 8px;
+}
+
+.about__card--subtitle {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.about__card--para {
+  color: #2f2f2f;
+  margin-bottom: 20px;
+}
+
+.about__card--chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.about__card--chips span {
+  background-color: rgba(106, 58, 135, 0.12);
+  color: #4e2b62;
+  border: 1px solid rgba(106, 58, 135, 0.2);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* CONTACT CARD */
+.contact__card--backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms ease;
+}
+
+.contact__card--backdrop.contact__card--open {
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 50;
+  opacity: 1;
+  visibility: visible;
+}
+
+.contact__card {
+  background-color: rgb(245, 245, 245);
+  border-radius: 20px;
+  border: 2px solid rgba(31, 90, 58, 0.28);
+  box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.45);
+  padding: 48px;
+  max-width: 520px;
+  width: 90%;
+  position: relative;
+  opacity: 0;
+  transform: translateY(14px) scale(0.96);
+  transition: transform 320ms ease, opacity 320ms ease;
+}
+
+.contact__card--backdrop.contact__card--open .contact__card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.contact__card--close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #242424;
+  cursor: pointer;
+  transition: color 250ms ease;
+}
+
+.contact__card--close:hover {
+  color: var(--accent-purple-hover);
+}
+
+.contact__card--title {
+  font-size: 32px;
+  color: #242424;
+  margin-bottom: 8px;
+}
+
+.contact__card--subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 28px;
+}
+
+.contact__card--form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact__form--group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact__form--group label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #242424;
+}
+
+.contact__form--group input,
+.contact__form--group textarea {
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.contact__form--group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.contact__card--submit {
+  background-color: var(--accent-purple);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 300ms ease;
+  margin-top: 8px;
+}
+
+.contact__card--submit:hover {
+  background-color: var(--accent-purple-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(106, 58, 135, 0.3);
+}
+
+.contact__card--submit:active {
+  transform: translateY(0);
 }
 
 textarea {
@@ -185,12 +409,10 @@ nav,
 */
 #landing-page {
   min-height: 100vh;
+  min-height: 100svh;
   position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 12% 18%, rgba(31, 90, 58, 0.11), transparent 35%),
-    radial-gradient(circle at 88% 82%, rgba(106, 58, 135, 0.1), transparent 38%),
-    linear-gradient(180deg, #f7f8f7 0%, #f1f2f1 100%);
+  overflow: visible;
+  background: transparent;
 }
 
 .header {
@@ -250,7 +472,7 @@ nav,
   bottom: 32px;
   right: 40px;
   z-index: 100;
-  box-shadow: 0 12px 30px 0 rgb(0, 0, 0, 0.28);
+  box-shadow: 0 10px 22px 0 rgba(0, 0, 0, 0.2);
   transition: all 300ms ease;
   z-index: 2;
 }
@@ -531,6 +753,13 @@ nav {
   
 */
 
+#projects {
+  position: relative;
+  margin-top: -2px;
+  padding-top: 2px;
+  background: transparent;
+}
+
 .section__title {
   text-align: center;
   font-size: 48px;
@@ -634,6 +863,7 @@ footer {
   background-color: #242424;
   display: flex;
   padding: 6% 0;
+  z-index: 4;
 }
 
 .footer__row {
@@ -691,7 +921,7 @@ footer {
   justify-content: center;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.38;
+  opacity: 0.32;
   animation: float-shape 9s ease-in-out infinite, pulse-shape 6s ease-in-out infinite;
   transition: transform 220ms ease-out, opacity 220ms ease, visibility 220ms ease;
 }
@@ -700,76 +930,88 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  opacity: 0.72;
+  filter: grayscale(1) saturate(0.35) brightness(1.08);
+}
+
+.shape__img--logo {
+  opacity: 0.2;
+  filter: grayscale(1) saturate(0.2) brightness(1.15);
+}
+
+.shape__img--leaf {
+  opacity: 0.42;
+  filter: saturate(0.7) brightness(1.05);
 }
 
 .shape--0 {
   top: 15vh;
   left: 5vw;
-  width: 14px;
-  height: 14px;
+  width: 22px;
+  height: 22px;
   animation-duration: 8s;
 }
 .shape--1 {
   top: 15vh;
   left: 50vw;
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
   animation-duration: 11s;
   animation-delay: -2s;
 }
 .shape--2 {
   top: 15vh;
   left: 80vw;
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   animation-duration: 10s;
   animation-delay: -1s;
 }
 .shape--3 {
   top: 50vh;
   left: 5vw;
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
   animation-duration: 9s;
   animation-delay: -3s;
 }
 .shape--4 {
   top: 50vh;
   left: 50vw;
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   animation-duration: 12s;
   animation-delay: -4s;
 }
 .shape--5 {
   top: 50vh;
   left: 80vw;
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
   animation-duration: 8.5s;
   animation-delay: -2.5s;
 }
 .shape--6 {
   top: 80vh;
   left: 5vw;
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   animation-duration: 10.5s;
   animation-delay: -3.5s;
 }
 .shape--7 {
   top: 80vh;
   left: 50vw;
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
   animation-duration: 9.5s;
   animation-delay: -1.5s;
 }
 .shape--8 {
   top: 80vh;
   left: 80vw;
-  width: 26px;
-  height: 26px;
+  width: 34px;
+  height: 34px;
   animation-duration: 12.5s;
   animation-delay: -4.5s;
 }
@@ -867,6 +1109,13 @@ footer {
     right: 24px;
     bottom: 24px;
   }
+  .about__card,
+  .contact__card {
+    width: calc(100% - 28px);
+    padding: 34px 22px;
+    border-radius: 16px;
+    transform: translateY(20px) scale(0.98);
+  }
   .modal {
     top: 0;
     left: 0;
@@ -908,6 +1157,12 @@ footer {
     font-size: 30px;
     right: 16px;
     bottom: 16px;
+  }
+  .about__card,
+  .contact__card {
+    width: calc(100% - 20px);
+    padding: 28px 18px;
+    border-radius: 14px;
   }
   .nav__link:first-child {
     display: none;
