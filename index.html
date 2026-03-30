@@ -12,7 +12,7 @@
     <section id="landing-page" onmousemove="moveBackground(event)">
         <nav>
             <figure>
-                <img id="personal-logo"src="./assets/logo.svg" alt="">
+                <img id="personal-logo"src="./assets/leaf-solid-full.svg" alt="">
             </figure>
             <ul class="nav__link--list">
                 <li class="nav__link" onclick="toggleModal()">
@@ -46,18 +46,106 @@
         <header class="header">
             <div class="header__content">
             <h1 class="title">Hello</h1>
-            <h1 class="title orange">I'm Erin.</h1>
-            <p class="header__para">I'm a <b class="orange">Frontend Software Engineer</b> with a strong passion for building web applications with great user experiences.<br>Here's a bit more <b class="orange click" onclick="toggleModal()">about me</b>.</p>
+            <h1 class="title purple">I'm Erin.</h1>
+            <p class="header__para">I'm a <b class="purple">Frontend Software Engineer</b> with a strong passion for building web applications with great user experiences.<br>Here's a bit more <b class="purple click" onclick="toggleModal()">about me</b>.</p>
             <div class="social__list">
-                <a href="https://www.linkedin.com/in/erin-hansen-a815013a0/?trk=opento_sprofile_topcard" target="_blank" class="social__link-click">
+                <a href="https://www.linkedin.com/in/erin-hansen-a815013a0/?trk=opento_sprofile_topcard" target="_blank" class="click">
                     <i class="fa-brands fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/Basicallyvader101" target="_blank" class="social__link-click">
+                <a href="https://github.com/Basicallyvader101" target="_blank" class="click">
                     <i class="fa-brands fa-github"></i>
                 </a>
-                </div>
+            </div>
             </div>
         </header>
+        <button class="mail__btn" onclick="window.location.href='mailto:erin.hansen1125@gmail.com'">
+            <i class="fa-solid fa-envelope"></i>
+        </button>
+        <a href="#projects" class="scroll">
+            <div class="scroll__icon"></div>
+        </a>
+        <div class="shape shape--0"><img src="./assets/circle.svg" alt="" class="shape__img" aria-hidden="true"></div>
+        <div class="shape shape--1"><img src="./assets/triangle.svg" alt="" class="shape__img" aria-hidden="true"></div>
+        <div class="shape shape--2"><img src="./assets/semi circle.svg" alt="" class="shape__img" aria-hidden="true"></div>
+        <div class="shape shape--3"><img src="./assets/squiggly.svg" alt="" class="shape__img" aria-hidden="true"></div>
+        <div class="shape shape--4"><img src="./assets/circle.svg" alt="" class="shape__img" aria-hidden="true"></div>
+        <div class="shape shape--5"><img src="./assets/triangle.svg" alt="" class="shape__img" aria-hidden="true"></div>
+        <div class="shape shape--6"><img src="./assets/semi circle.svg" alt="" class="shape__img" aria-hidden="true"></div>
+        <div class="shape shape--7"><img src="./assets/squiggly.svg" alt="" class="shape__img" aria-hidden="true"></div>
+        <div class="shape shape--8"><img src="./assets/circle.svg" alt="" class="shape__img" aria-hidden="true"></div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="row">
+                <h1 class="section__title">Here are some of my <span class="purple">projects</span></h1>
+                <ul class="project__list">
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img src="./assets/Eportfolio YT.png" class="project__img" alt="Portfolio project preview">
+                            <div class="project__wrapper--bg"></div>
+                            <div class="project__description">
+                                <h3 class="project__description--title">Personal Portfolio</h3>
+                                <h4 class="project__description--sub-title">HTML, CSS, JavaScript</h4>
+                                <p class="project__description--para">
+                                    A responsive developer portfolio focused on clean motion, strong hierarchy, and polished interactions.
+                                </p>
+                                <div class="project__description--links">
+                                    <a href="#" class="project__description--link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <a href="#" class="project__description--link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa-solid fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img src="./assets/chat.png" class="project__img" alt="Chat application project preview">
+                            <div class="project__wrapper--bg"></div>
+                            <div class="project__description">
+                                <h3 class="project__description--title">Realtime Chat UI</h3>
+                                <h4 class="project__description--sub-title">React, Firebase, CSS</h4>
+                                <p class="project__description--para">
+                                    A modern chat interface with responsive layouts, message states, and polished UI transitions.
+                                </p>
+                                <div class="project__description--links">
+                                    <a href="#" class="project__description--link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <a href="#" class="project__description--link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa-solid fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img src="./assets/google mockup.png" class="project__img" alt="Google clone project preview">
+                            <div class="project__wrapper--bg"></div>
+                            <div class="project__description">
+                                <h3 class="project__description--title">Search Clone</h3>
+                                <h4 class="project__description--sub-title">HTML, CSS, JavaScript</h4>
+                                <p class="project__description--para">
+                                    A front-end clone with focus on visual accuracy, performance, and mobile responsiveness.
+                                </p>
+                                <div class="project__description--links">
+                                    <a href="#" class="project__description--link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <a href="#" class="project__description--link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa-solid fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </section>
 </body>
 </html>
