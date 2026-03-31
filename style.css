@@ -1,9 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('./assets/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --accent-purple: #800080;
   --accent-purple-hover: #6a3a87;
   --accent-green: #1f5a3a;
+  --nav-fade-light: rgba(106, 58, 135, 0.4);
+  --nav-fade-dark: rgba(106, 58, 135, 0.32);
   --page-bg-light-purple: #faf6ff;
   --footer-purple: #5f2577;
 }
@@ -12,7 +20,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 
 html {
@@ -21,6 +29,7 @@ html {
 
 body {
   background:
+    linear-gradient(180deg, var(--nav-fade-light) 0%, rgba(106, 58, 135, 0.2) 30%, rgba(106, 58, 135, 0.1) 64%, rgba(106, 58, 135, 0.05) 100%),
     radial-gradient(circle at 12% 18%, rgba(31, 90, 58, 0.08), transparent 35%),
     radial-gradient(circle at 88% 12%, rgba(106, 58, 135, 0.12), transparent 40%),
     linear-gradient(180deg, var(--page-bg-light-purple) 0%, #f3eaff 45%, #eee2ff 100%);
@@ -446,6 +455,7 @@ nav,
 
 .dark-theme {
   background:
+    linear-gradient(180deg, var(--nav-fade-dark) 0%, rgba(106, 58, 135, 0.16) 30%, rgba(106, 58, 135, 0.08) 64%, rgba(106, 58, 135, 0.03) 100%),
     radial-gradient(circle at 14% 20%, rgba(106, 58, 135, 0.2), transparent 36%),
     radial-gradient(circle at 86% 10%, rgba(31, 90, 58, 0.15), transparent 40%),
     linear-gradient(180deg, #050505 0%, #0b0b0f 55%, #111118 100%);
